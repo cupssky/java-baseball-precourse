@@ -21,4 +21,7 @@ public class Hitter {
     return hitterSwing;
   }
 
+  public void quit() {
+    hitterSwing.clear();
+  }
 }
