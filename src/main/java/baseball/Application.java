@@ -4,6 +4,6 @@ import baseball.core.Game;
 
 public class Application {
     public static void main(String[] args) {
-        new Game().init();
+        new Game().start();
     }
 }

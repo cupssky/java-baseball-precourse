@@ -1,6 +1,7 @@
 package baseball.core;
 
 import baseball.enums.RestartType;
+import baseball.enums.ResultCode;
 import baseball.utils.MessageUtil;
 
 import java.util.Set;
@@ -19,26 +20,25 @@ public class Game {
         pitcher = new Pitcher();
     }
 
-    public void init() {
-        start();
-        end();
-    }
-
-    private void start() {
+    public void start() {
         Set<Integer> hitterSwing = hitter.swing();
         boolean end;
         do {
             end = referee.judge(hitterSwing, pitcher.throwBall());
         } while (!end);
+        hitter.quit();
+        end();
     }
 
     private void end() {
-        hitter.quit();
-
         MessageUtil.guideMessage("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String restartCommand = Console.readLine();
-        if (restartCommand.equals(RestartType.START.getValue())) {
+        RestartType restartType = RestartType.findByValue(Console.readLine());
+        if (restartType == RestartType.START) {
             start();
+        }
+        if (restartType == null) {
+            MessageUtil.errorMessage(ResultCode.NOT_VALID_RESTART_TYPE);
+            end();
         }
     }
 }
