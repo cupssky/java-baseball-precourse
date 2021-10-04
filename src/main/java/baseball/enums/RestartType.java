@@ -1,15 +1,15 @@
 package baseball.enums;
 
 public enum RestartType {
-  START("1");
+    START("1");
 
-  private String value;
+    private String value;
 
-  RestartType(String value) {
-    this.value = value;
-  }
+    RestartType(String value) {
+        this.value = value;
+    }
 
-  public String getValue() {
-    return value;
-  }
+    public String getValue() {
+        return value;
+    }
 }

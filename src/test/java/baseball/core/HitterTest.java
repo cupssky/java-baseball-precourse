@@ -9,18 +9,19 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class HitterTest {
 
-  private Hitter hitter;
+    private Hitter hitter;
 
-  @BeforeEach
-  public void setUp() {
-    hitter = new Hitter();
-  }
+    @BeforeEach
+    public void setUp() {
+        hitter = new Hitter();
+    }
 
-  @DisplayName("타자 3개의 다른수 생성확인 테스트")
-  @ValueSource(ints = 3)
-  @ParameterizedTest
-  public void 타자_3개_다른수_생성(int randomNumberCondition) {
-    int swingNumberCount = hitter.swing().size();
-    assertThat(swingNumberCount).isEqualTo(randomNumberCondition);
-  }
+    @DisplayName("타자 3개의 다른수 생성확인 테스트")
+    @ValueSource(ints = 3)
+    @ParameterizedTest
+    public void 타자_3개_다른수_생성(int randomNumberCondition) {
+        int swingNumberCount = hitter.swing().size();
+        assertThat(swingNumberCount).isEqualTo(randomNumberCondition);
+    }
+
 }
