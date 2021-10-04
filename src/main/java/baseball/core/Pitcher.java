@@ -8,13 +8,13 @@ import nextstep.utils.Console;
 
 public class Pitcher {
 
-  public Set<Integer> pitch() {
-    String pitchValue;
+  public Set<Integer> throwBall() {
+    String pitcherBall;
     do {
       MessageUtil.guideMessage("숫자를 입력해주세요 : ");
-      pitchValue = Console.readLine();
-    } while (!ValidateUtil.isValidInput(pitchValue));
+      pitcherBall = Console.readLine();
+    } while (!ValidateUtil.isValidInput(pitcherBall));
 
-    return ConvertUtil.convertStringToSet(pitchValue);
+    return ConvertUtil.convertStringToSet(pitcherBall);
   }
 }

@@ -7,18 +7,18 @@ import nextstep.utils.Randoms;
 
 public class Hitter {
 
-  private Set<Integer> swingInfo;
+  private Set<Integer> hitterSwing;
 
   public Hitter() {
-    swingInfo = new LinkedHashSet<>();
+    hitterSwing = new LinkedHashSet<>();
   }
 
   public Set<Integer> swing() {
-    while (swingInfo.size() < Const.MAX_NUMBER_SIZE) {
+    while (hitterSwing.size() < Const.MAX_NUMBER_SIZE) {
       int number = Randoms.pickNumberInRange(1, 9);
-      swingInfo.add(number);
+      hitterSwing.add(number);
     }
-    return swingInfo;
+    return hitterSwing;
   }
 
 }
