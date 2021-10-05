@@ -72,17 +72,9 @@ public class Computer {
         int strikeScore = strikeScore(computerNumberList, playerNumberList);
         int ballScore = ballScore(computerNumberList, playerNumberList);
 
-        if (strikeScore > 0) {
-            hint += strikeScore + GameMessage.STRIKE;
-        }
-
-        if (ballScore > 0) {
-            hint += ballScore + GameMessage.BALL;
-        }
-
-        if (strikeScore == 0 && ballScore == 0) {
-            hint += GameMessage.NOTHING;
-        }
+        hint += strikeHint(strikeScore);
+        hint += ballHint(ballScore);
+        hint += nothingHint(strikeScore, ballScore);
 
         return hint.trim();
     }
@@ -143,5 +135,41 @@ public class Computer {
             score = 1;
         }
         return score;
+    }
+
+    /**
+     * 스트라이크 힌트
+     * @return String
+     */
+    private String strikeHint(int strikeScore) {
+        String hint = "";
+        if (strikeScore > 0) {
+            hint += strikeScore + GameMessage.STRIKE;
+        }
+        return hint;
+    }
+
+    /**
+     * 볼 힌트
+     * @return String
+     */
+    private String ballHint(int ballScore) {
+        String hint = "";
+        if (ballScore > 0) {
+            hint += ballScore + GameMessage.BALL;
+        }
+        return hint;
+    }
+
+    /**
+     * 낫싱 힌트
+     * @return String
+     */
+    private String nothingHint(int strikeScore, int ballScore) {
+        String hint = "";
+        if (strikeScore == 0 && ballScore == 0) {
+            hint += GameMessage.NOTHING;
+        }
+        return hint;
     }
 }
