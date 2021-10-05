@@ -9,12 +9,15 @@ public class Player {
     private List<Integer> playerNumber = new ArrayList<>();
     private static final int INPUT_SIZE = BallConfig.INPUT_SIZE;
 
-    public Player(String inputValue) {
-        String[] inputArray = inputValue.split("");
+    /**
+     * 플레이어가 선택한 숫자를 세팅한다.
+     */
+    public void setPlayerNumber(String inputNumber) {
+        String[] inputNumbers = inputNumber.split("");
         int index = 0;
 
         while (this.playerNumber.size() != INPUT_SIZE) {
-            setPlayerNumber(Integer.parseInt(inputArray[index++]));
+            addPlayerNumber(Integer.parseInt(inputNumbers[index++]));
         }
     }
 
@@ -22,9 +25,18 @@ public class Player {
      * 플레이어가 선택한 숫자 list에 추가한다.
      * 중복되지 않은 수만 추가한다.
      */
-    public void setPlayerNumber(int number) {
+    public void addPlayerNumber(int number) {
         if (!isDuplication(number)) {
-            this.playerNumber.add(number);
+            playerNumber.add(number);
+        }
+    }
+
+    /**
+     * 사용자가 선택한 숫자를 초기화한다.
+     */
+    public void clearPlayerNumber() {
+        if (!playerNumber.isEmpty()) {
+            playerNumber.clear();
         }
     }
 
